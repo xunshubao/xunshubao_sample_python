@@ -122,7 +122,7 @@ class XunshubaoZxgkUtil:
         # 请求参数构建
         post_data = {
             'requestHeader': req_header,
-            'requestBody': self.encryptByAES(self.aesSecretKey, req_body_str)
+            'requestBody': self.encrypt_by_aes(self.aesSecretKey, req_body_str)
         }
         try:
             # 向服务器提交请求
@@ -136,7 +136,7 @@ class XunshubaoZxgkUtil:
                 msg = contentJson['msg']
                 if code == '0000':
                     encodedData = contentJson['data']
-                    decodedTxt = self.decryptByAES(self.aesSecretKey, encodedData)
+                    decodedTxt = self.decrypt_by_aes(self.aesSecretKey, encodedData)
                     logging.info('执行公开核验接口-企业查询成功，解密后的报文如下：')
                     logging.info(decodedTxt)
                     return code, msg, decodedTxt
@@ -150,7 +150,7 @@ class XunshubaoZxgkUtil:
             logging.warning(url, rte)
         return "9999", "请求异常", None
 
-    def zxgkCheckForPerson(self, search_form: ZxgkSearchForm):
+    def zxgk_check_for_person(self, search_form: ZxgkSearchForm):
         """
         执行公开核验接口-个人 请求示例
         :param search_form: 查询条件
@@ -184,7 +184,7 @@ class XunshubaoZxgkUtil:
         # 请求参数构建
         post_data = {
             'requestHeader': req_header,
-            'requestBody': self.encryptBySM4(self.sm4SecretKey, req_body_str)
+            'requestBody': self.encrypt_by_sm4(self.sm4SecretKey, req_body_str)
         }
 
         try:
@@ -199,7 +199,7 @@ class XunshubaoZxgkUtil:
                 msg = contentJson['msg']
                 if code == '0000':
                     encodedData = contentJson['data']
-                    decodedTxt = self.decryptBySM4(self.sm4SecretKey, encodedData)
+                    decodedTxt = self.decrypt_by_sm4(self.sm4SecretKey, encodedData)
                     logging.info('执行公开核验接口-个人查询成功，解密后的报文如下：')
                     logging.info(decodedTxt)
                     return code, msg, decodedTxt
@@ -213,7 +213,7 @@ class XunshubaoZxgkUtil:
             logging.warning(url, rte)
         return "9999", "请求异常", None
 
-    def shixinCheckForCompany(self, search_form: ZxgkSearchForm):
+    def shixin_check_for_company(self, search_form: ZxgkSearchForm):
         """
         失信核验接口-企业 请求示例
         :param search_form: 查询条件
@@ -248,7 +248,7 @@ class XunshubaoZxgkUtil:
         # 请求参数构建
         post_data = {
             'requestHeader': req_header,
-            'requestBody': self.encryptByAES(self.aesSecretKey, req_body_str)
+            'requestBody': self.encrypt_by_aes(self.aesSecretKey, req_body_str)
         }
         try:
             # 向服务器提交请求
@@ -262,7 +262,7 @@ class XunshubaoZxgkUtil:
                 msg = contentJson['msg']
                 if code == '0000':
                     encodedData = contentJson['data']
-                    decodedTxt = self.decryptByAES(self.aesSecretKey, encodedData)
+                    decodedTxt = self.decrypt_by_aes(self.aesSecretKey, encodedData)
                     logging.info('失信核验接口-企业查询成功，解密后的报文如下：')
                     logging.info(decodedTxt)
                     return code, msg, decodedTxt
@@ -276,7 +276,7 @@ class XunshubaoZxgkUtil:
             logging.warning(url, rte)
         return "9999", "请求异常", None
 
-    def shixinCheckForPerson(self, search_form: ZxgkSearchForm):
+    def shixin_check_for_person(self, search_form: ZxgkSearchForm):
         """
         失信核验接口-个人 请求示例
         :param search_form: 查询条件
@@ -310,7 +310,7 @@ class XunshubaoZxgkUtil:
         # 请求参数构建
         post_data = {
             'requestHeader': req_header,
-            'requestBody': self.encryptBySM4(self.sm4SecretKey, req_body_str)
+            'requestBody': self.encrypt_by_sm4(self.sm4SecretKey, req_body_str)
         }
 
         try:
@@ -325,7 +325,7 @@ class XunshubaoZxgkUtil:
                 msg = contentJson['msg']
                 if code == '0000':
                     encodedData = contentJson['data']
-                    decodedTxt = self.decryptBySM4(self.sm4SecretKey, encodedData)
+                    decodedTxt = self.decrypt_by_sm4(self.sm4SecretKey, encodedData)
                     logging.info('失信核验接口-个人查询成功，解密后的报文如下：')
                     logging.info(decodedTxt)
                     return code, msg, decodedTxt
@@ -339,7 +339,7 @@ class XunshubaoZxgkUtil:
             logging.warning(url, rte)
         return "9999", "请求异常", None
 
-    def xglCheckForCompany(self, search_form: ZxgkSearchForm):
+    def xgl_check_for_company(self, search_form: ZxgkSearchForm):
         """
         限制消费人员核验接口-企业 请求示例
         :param search_form: 查询条件
@@ -374,7 +374,7 @@ class XunshubaoZxgkUtil:
         # 请求参数构建
         post_data = {
             'requestHeader': req_header,
-            'requestBody': self.encryptByAES(self.aesSecretKey, req_body_str)
+            'requestBody': self.encrypt_by_aes(self.aesSecretKey, req_body_str)
         }
         try:
             # 向服务器提交请求
@@ -388,7 +388,7 @@ class XunshubaoZxgkUtil:
                 msg = contentJson['msg']
                 if code == '0000':
                     encodedData = contentJson['data']
-                    decodedTxt = self.decryptByAES(self.aesSecretKey, encodedData)
+                    decodedTxt = self.decrypt_by_aes(self.aesSecretKey, encodedData)
                     logging.info('限制消费核验接口-企业查询成功，解密后的报文如下：')
                     logging.info(decodedTxt)
                     return code, msg, decodedTxt
@@ -402,7 +402,7 @@ class XunshubaoZxgkUtil:
             logging.warning(url, rte)
         return "9999", "请求异常", None
 
-    def xglCheckForPerson(self, search_form: ZxgkSearchForm):
+    def xgl_check_for_person(self, search_form: ZxgkSearchForm):
         """
         限制消费人员核验接口-个人 请求示例
         :param search_form: 查询条件
@@ -436,7 +436,7 @@ class XunshubaoZxgkUtil:
         # 请求参数构建
         post_data = {
             'requestHeader': req_header,
-            'requestBody': self.encryptBySM4(self.sm4SecretKey, req_body_str)
+            'requestBody': self.encrypt_by_sm4(self.sm4SecretKey, req_body_str)
         }
 
         try:
@@ -451,7 +451,7 @@ class XunshubaoZxgkUtil:
                 msg = contentJson['msg']
                 if code == '0000':
                     encodedData = contentJson['data']
-                    decodedTxt = self.decryptBySM4(self.sm4SecretKey, encodedData)
+                    decodedTxt = self.decrypt_by_sm4(self.sm4SecretKey, encodedData)
                     logging.info('限制消费核验接口-个人查询成功，解密后的报文如下：')
                     logging.info(decodedTxt)
                     return code, msg, decodedTxt
@@ -465,7 +465,7 @@ class XunshubaoZxgkUtil:
             logging.warning(url, rte)
         return "9999", "请求异常", None
 
-    def zhixingCheckForCompany(self, search_form: ZxgkSearchForm):
+    def zhixing_check_for_company(self, search_form: ZxgkSearchForm):
         """
         被执行人核验接口-企业 请求示例
         :param search_form: 查询条件
@@ -500,7 +500,7 @@ class XunshubaoZxgkUtil:
         # 请求参数构建
         post_data = {
             'requestHeader': req_header,
-            'requestBody': self.encryptByAES(self.aesSecretKey, req_body_str)
+            'requestBody': self.encrypt_by_aes(self.aesSecretKey, req_body_str)
         }
         try:
             # 向服务器提交请求
@@ -514,7 +514,7 @@ class XunshubaoZxgkUtil:
                 msg = contentJson['msg']
                 if code == '0000':
                     encodedData = contentJson['data']
-                    decodedTxt = self.decryptByAES(self.aesSecretKey, encodedData)
+                    decodedTxt = self.decrypt_by_aes(self.aesSecretKey, encodedData)
                     logging.info('被执行人核验接口-企业查询成功，解密后的报文如下：')
                     logging.info(decodedTxt)
                     return code, msg, decodedTxt
@@ -528,7 +528,7 @@ class XunshubaoZxgkUtil:
             logging.warning(url, rte)
         return "9999", "请求异常", None
 
-    def zhixingCheckForPerson(self, search_form: ZxgkSearchForm):
+    def zhixing_check_for_person(self, search_form: ZxgkSearchForm):
         """
         被执行人核验接口-个人 请求示例
         :param search_form: 查询条件
@@ -562,7 +562,7 @@ class XunshubaoZxgkUtil:
         # 请求参数构建
         post_data = {
             'requestHeader': req_header,
-            'requestBody': self.encryptBySM4(self.sm4SecretKey, req_body_str)
+            'requestBody': self.encrypt_by_sm4(self.sm4SecretKey, req_body_str)
         }
 
         try:
@@ -577,7 +577,7 @@ class XunshubaoZxgkUtil:
                 msg = contentJson['msg']
                 if code == '0000':
                     encodedData = contentJson['data']
-                    decodedTxt = self.decryptBySM4(self.sm4SecretKey, encodedData)
+                    decodedTxt = self.decrypt_by_sm4(self.sm4SecretKey, encodedData)
                     logging.info('被执行人核验接口-个人查询成功，解密后的报文如下：')
                     logging.info(decodedTxt)
                     return code, msg, decodedTxt
@@ -591,7 +591,7 @@ class XunshubaoZxgkUtil:
             logging.warning(url, rte)
         return "9999", "请求异常", None
 
-    def zhongbenCheckForCompany(self, search_form: ZxgkSearchForm):
+    def zhongben_check_for_company(self, search_form: ZxgkSearchForm):
         """
         终本案件核验接口-企业 请求示例
         :param search_form: 查询条件
@@ -626,7 +626,7 @@ class XunshubaoZxgkUtil:
         # 请求参数构建
         post_data = {
             'requestHeader': req_header,
-            'requestBody': self.encryptByAES(self.aesSecretKey, req_body_str)
+            'requestBody': self.encrypt_by_aes(self.aesSecretKey, req_body_str)
         }
         try:
             # 向服务器提交请求
@@ -640,7 +640,7 @@ class XunshubaoZxgkUtil:
                 msg = contentJson['msg']
                 if code == '0000':
                     encodedData = contentJson['data']
-                    decodedTxt = self.decryptByAES(self.aesSecretKey, encodedData)
+                    decodedTxt = self.decrypt_by_aes(self.aesSecretKey, encodedData)
                     logging.info('终本案件核验接口-企业查询成功，解密后的报文如下：')
                     logging.info(decodedTxt)
                     return code, msg, decodedTxt
@@ -654,7 +654,7 @@ class XunshubaoZxgkUtil:
             logging.warning(url, rte)
         return "9999", "请求异常", None
 
-    def zhongbenCheckForPerson(self, search_form: ZxgkSearchForm):
+    def zhongben_check_for_person(self, search_form: ZxgkSearchForm):
         """
         终本案件核验接口-个人 请求示例
         :param search_form: 查询条件
@@ -688,7 +688,7 @@ class XunshubaoZxgkUtil:
         # 请求参数构建
         post_data = {
             'requestHeader': req_header,
-            'requestBody': self.encryptBySM4(self.sm4SecretKey, req_body_str)
+            'requestBody': self.encrypt_by_sm4(self.sm4SecretKey, req_body_str)
         }
 
         try:
@@ -703,7 +703,7 @@ class XunshubaoZxgkUtil:
                 msg = contentJson['msg']
                 if code == '0000':
                     encodedData = contentJson['data']
-                    decodedTxt = self.decryptBySM4(self.sm4SecretKey, encodedData)
+                    decodedTxt = self.decrypt_by_sm4(self.sm4SecretKey, encodedData)
                     logging.info('终本案件核验接口-个人查询成功，解密后的报文如下：')
                     logging.info(decodedTxt)
                     return code, msg, decodedTxt
@@ -717,7 +717,7 @@ class XunshubaoZxgkUtil:
             logging.warning(url, rte)
         return "9999", "请求异常", None
 
-    def zxgkQueryForCompany(self, search_form: ZxgkSearchForm):
+    def zxgk_query_for_company(self, search_form: ZxgkSearchForm):
         """
         执行公开查询接口-企业 请求示例
         :param search_form: 查询条件
@@ -752,7 +752,7 @@ class XunshubaoZxgkUtil:
         # 请求参数构建
         post_data = {
             'requestHeader': req_header,
-            'requestBody': self.encryptByAES(self.aesSecretKey, req_body_str)
+            'requestBody': self.encrypt_by_aes(self.aesSecretKey, req_body_str)
         }
         try:
             # 向服务器提交请求
@@ -766,7 +766,7 @@ class XunshubaoZxgkUtil:
                 msg = contentJson['msg']
                 if code == '0000':
                     encodedData = contentJson['data']
-                    decodedTxt = self.decryptByAES(self.aesSecretKey, encodedData)
+                    decodedTxt = self.decrypt_by_aes(self.aesSecretKey, encodedData)
                     logging.info('执行公开查询接口-企业查询成功，解密后的报文如下：')
                     logging.info(decodedTxt)
                     return code, msg, decodedTxt
@@ -780,7 +780,7 @@ class XunshubaoZxgkUtil:
             logging.warning(url, rte)
         return "9999", "请求异常", None
 
-    def zxgkQueryForPerson(self, search_form: ZxgkSearchForm):
+    def zxgk_query_for_person(self, search_form: ZxgkSearchForm):
         """
         执行公开查询接口-个人 请求示例
         :param search_form: 查询条件
@@ -814,7 +814,7 @@ class XunshubaoZxgkUtil:
         # 请求参数构建
         post_data = {
             'requestHeader': req_header,
-            'requestBody': self.encryptBySM4(self.sm4SecretKey, req_body_str)
+            'requestBody': self.encrypt_by_sm4(self.sm4SecretKey, req_body_str)
         }
 
         try:
@@ -829,7 +829,7 @@ class XunshubaoZxgkUtil:
                 msg = contentJson['msg']
                 if code == '0000':
                     encodedData = contentJson['data']
-                    decodedTxt = self.decryptBySM4(self.sm4SecretKey, encodedData)
+                    decodedTxt = self.decrypt_by_sm4(self.sm4SecretKey, encodedData)
                     logging.info('执行公开查询接口-个人查询成功，解密后的报文如下：')
                     logging.info(decodedTxt)
                     return code, msg, decodedTxt
@@ -843,7 +843,7 @@ class XunshubaoZxgkUtil:
             logging.warning(url, rte)
         return "9999", "请求异常", None
 
-    def sifaDataInfo(self, requestId, dataType, dataId, extra=''):
+    def sifa_data_info(self, requestId, dataType, dataId, extra=''):
         """
         执行公开数据详情 请求示例
         :param requestId: 请求唯一标识
@@ -885,7 +885,7 @@ class XunshubaoZxgkUtil:
         # 请求参数构建
         post_data = {
             'requestHeader': req_header,
-            'requestBody': self.encryptByAES(self.aesSecretKey, req_body_str)
+            'requestBody': self.encrypt_by_aes(self.aesSecretKey, req_body_str)
         }
         try:
             # 向服务器提交请求
@@ -899,7 +899,7 @@ class XunshubaoZxgkUtil:
                 msg = contentJson['msg']
                 if code == '0000':
                     encodedData = contentJson['data']
-                    decodedTxt = self.decryptByAES(self.aesSecretKey, encodedData)
+                    decodedTxt = self.decrypt_by_aes(self.aesSecretKey, encodedData)
                     logging.info('执行公开数据详情查询成功，解密后的报文如下：')
                     logging.info(decodedTxt)
                     return code, msg, decodedTxt
@@ -924,27 +924,27 @@ class XunshubaoZxgkUtil:
         msg_list = [i for i in bytes(txt.encode('UTF-8'))]
         return sm3_hash(msg_list)
 
-    def encryptByAES(self, key, txt):
+    def encrypt_by_aes(self, key, txt):
         cipher = AES.new(key.encode('utf-8'), AES.MODE_ECB)  # 创建 AES 加密器对象
         padded_plaintext = pad(txt.encode('utf-8'), AES.block_size)  # 填充明文数据
         ciphertext = cipher.encrypt(padded_plaintext)  # 加密
         encoded_data = base64.b64encode(ciphertext)
         return encoded_data.decode('utf-8')
 
-    def decryptByAES(self, key, ciphertext):
+    def decrypt_by_aes(self, key, ciphertext):
         cipher = AES.new(key.encode('utf-8'), AES.MODE_ECB)  # 创建 AES 加密器对象
         decrypted = cipher.decrypt(base64.b64decode(ciphertext))  # 解密
         decrypted_data = unpad(decrypted, AES.block_size)  # 去除填充
         return decrypted_data.decode('utf-8')
 
-    def encryptBySM4(self, key, txt):
+    def encrypt_by_sm4(self, key, txt):
         crypt_sm4 = CryptSM4()
         crypt_sm4.set_key(base64.b64decode(key), SM4_ENCRYPT)
         encrypt_value = crypt_sm4.crypt_ecb(txt.encode('utf-8'))  # bytes类型
         encoded_data = base64.b64encode(encrypt_value)
         return encoded_data.decode('utf-8')
 
-    def decryptBySM4(self, key, ciphertext):
+    def decrypt_by_sm4(self, key, ciphertext):
         crypt_sm4 = CryptSM4()
         crypt_sm4.set_key(base64.b64decode(key), SM4_DECRYPT)
         decrypt_value = crypt_sm4.crypt_ecb(base64.b64decode(ciphertext))  # bytes类型
@@ -983,64 +983,64 @@ if __name__ == "__main__":
     # 执行公开核验接口-个人
     requestId = uuid.uuid4().hex
     search_form = ZxgkSearchForm(requestId=requestId, name=name, cardNum=cardNum, pageNo=1)
-    xunshubao_zxgk_util.zxgkCheckForPerson(search_form)
+    xunshubao_zxgk_util.zxgk_check_for_person(search_form)
 
     # 失信核验接口-企业
     requestId = uuid.uuid4().hex
     search_form = ZxgkSearchForm(requestId=requestId, name=companyName, pageNo=1)
-    result = xunshubao_zxgk_util.shixinCheckForCompany(search_form)
+    result = xunshubao_zxgk_util.shixin_check_for_company(search_form)
 
     # 失信核验接口-个人
     requestId = uuid.uuid4().hex
     encryptCardNum = xunshubao_zxgk_util.sm3(cardNum)
     search_form = ZxgkSearchForm(requestId=requestId, name=name, cardNum=encryptCardNum, hashParam='cardNum',
                                  hashType='SM3', pageNo=1)
-    xunshubao_zxgk_util.shixinCheckForPerson(search_form)
+    xunshubao_zxgk_util.shixin_check_for_person(search_form)
 
     # 限制消费人员核验接口-企业
     requestId = uuid.uuid4().hex
     search_form = ZxgkSearchForm(requestId=requestId, name=companyName, pageNo=1)
-    result = xunshubao_zxgk_util.xglCheckForCompany(search_form)
+    result = xunshubao_zxgk_util.xgl_check_for_company(search_form)
 
     # 限制消费人员核验接口-个人
     requestId = uuid.uuid4().hex
     search_form = ZxgkSearchForm(requestId=requestId, name=name, cardNum=cardNum, pageNo=1)
-    xunshubao_zxgk_util.xglCheckForPerson(search_form)
+    xunshubao_zxgk_util.xgl_check_for_person(search_form)
 
     # 被执行人核验接口-企业
     requestId = uuid.uuid4().hex
     search_form = ZxgkSearchForm(requestId=requestId, name=companyName, pageNo=1)
-    result = xunshubao_zxgk_util.zhixingCheckForCompany(search_form)
+    result = xunshubao_zxgk_util.zhixing_check_for_company(search_form)
 
     # 被执行人核验接口-个人
     requestId = uuid.uuid4().hex
     search_form = ZxgkSearchForm(requestId=requestId, name=name, cardNum=cardNum, pageNo=1)
-    xunshubao_zxgk_util.zhixingCheckForPerson(search_form)
+    xunshubao_zxgk_util.zhixing_check_for_person(search_form)
 
     # 终本案件核验接口-企业
     requestId = uuid.uuid4().hex
     search_form = ZxgkSearchForm(requestId=requestId, name=companyName, pageNo=1)
-    result = xunshubao_zxgk_util.zhongbenCheckForCompany(search_form)
+    result = xunshubao_zxgk_util.zhongben_check_for_company(search_form)
 
     # 终本案件核验接口-个人
     requestId = uuid.uuid4().hex
     search_form = ZxgkSearchForm(requestId=requestId, name=name, cardNum=cardNum, pageNo=1)
-    xunshubao_zxgk_util.zhongbenCheckForPerson(search_form)
+    xunshubao_zxgk_util.zhongben_check_for_person(search_form)
 
     # 执行公开查询接口-企业
     caseCode = '案号'
     requestId = uuid.uuid4().hex
     search_form = ZxgkSearchForm(requestId=requestId, name=companyName, caseCode=caseCode, pageNo=1)
-    result = xunshubao_zxgk_util.zxgkQueryForCompany(search_form)
+    result = xunshubao_zxgk_util.zxgk_query_for_company(search_form)
 
     # 执行公开查询接口-个人
     caseCode = '案号'
     requestId = uuid.uuid4().hex
     search_form = ZxgkSearchForm(requestId=requestId, name=name, cardNum=cardNum, caseCode=caseCode, pageNo=1)
-    xunshubao_zxgk_util.zxgkQueryForPerson(search_form)
+    xunshubao_zxgk_util.zxgk_query_for_person(search_form)
 
     # 司法数据详情
     dataType = 'zhixing'
     dataId = '7c8f5f4fa36c2ff011b0b012c38675de'
     requestId = uuid.uuid4().hex
-    xunshubao_zxgk_util.sifaDataInfo(requestId, dataType, dataId)
+    xunshubao_zxgk_util.sifa_data_info(requestId, dataType, dataId)
